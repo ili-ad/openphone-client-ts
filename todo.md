@@ -1,6 +1,6 @@
 # Wrapper backlog
 - [x] 1. wrap `/v1/call-recordings/{callId}` (get, patch, delete) → `src/endpoints/call-recordings-by-id.ts`
-- [ ] 2. wrap `/v1/call-summaries/{callId}` (get, patch, delete) → `src/endpoints/call-summaries-by-id.ts`
+- [x] 2. wrap `/v1/call-summaries/{callId}` (get, patch, delete) → `src/endpoints/call-summaries-by-id.ts`
 - [ ] 3. wrap `/v1/call-transcripts/{id}` (get, patch, delete) → `src/endpoints/call-transcripts-by-id.ts`
 - [ ] 4. wrap `/v1/calls` (get, post) → `src/endpoints/calls.ts`
 - [ ] 5. wrap `/v1/contact-custom-fields` (get, post) → `src/endpoints/contact-custom-fields.ts`
