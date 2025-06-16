@@ -8,3 +8,10 @@ export {
   UpdateCallRecordingResponse,
   DeleteCallRecordingResponse,
 } from './endpoints/call-recordings-by-id'
+
+export {
+  listWebhooks,
+  createWebhook,
+  ListWebhooksResponse,
+  CreateWebhookResponse,
+} from './endpoints/webhooks'
