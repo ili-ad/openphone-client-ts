@@ -3,7 +3,7 @@
 - [x] 2. wrap `/v1/call-summaries/{callId}` (get, patch, delete) → `src/endpoints/call-summaries-by-id.ts`
 - [x] 3. wrap `/v1/call-transcripts/{id}` (get, patch, delete) → `src/endpoints/call-transcripts-by-id.ts`
 - [ ] 3. wrap `/v1/call-transcripts/{id}` (get, patch, delete) → `src/endpoints/call-transcripts-by-id.ts`
-- [ ] 4. wrap `/v1/calls` (get, post) → `src/endpoints/calls.ts`
+- [x] 4. wrap `/v1/calls` (get, post) → `src/endpoints/calls.ts`
 - [ ] 5. wrap `/v1/contact-custom-fields` (get, post) → `src/endpoints/contact-custom-fields.ts`
 - [ ] 6. wrap `/v1/contacts` (get, post) → `src/endpoints/contacts.ts`
 - [ ] 7. wrap `/v1/contacts/{id}` (get, patch, delete) → `src/endpoints/contacts-by-id.ts`

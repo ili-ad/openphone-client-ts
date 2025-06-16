@@ -9,6 +9,12 @@ export {
   DeleteCallRecordingResponse,
 } from './endpoints/call-recordings-by-id'
 export {
+  listCalls,
+  createCall,
+  ListCallsResponse,
+  CreateCallResponse,
+} from './endpoints/calls'
+export {
   getCallTranscript,
   updateCallTranscript,
   deleteCallTranscript,
