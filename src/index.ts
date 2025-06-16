@@ -9,6 +9,12 @@ export {
   DeleteCallRecordingResponse,
 } from './endpoints/call-recordings-by-id'
 export {
+  getContactCustomFields,
+  createContactCustomField,
+  GetContactCustomFieldsResponse,
+  CreateContactCustomFieldResponse,
+} from './endpoints/contact-custom-fields'
+export {
   listCalls,
   createCall,
   ListCallsResponse,
