@@ -8,7 +8,6 @@ export {
   UpdateCallRecordingResponse,
   DeleteCallRecordingResponse,
 } from './endpoints/call-recordings-by-id'
-
 export {
   getCallTranscript,
   updateCallTranscript,
@@ -17,3 +16,11 @@ export {
   UpdateCallTranscriptResponse,
   DeleteCallTranscriptResponse,
 } from './endpoints/call-transcripts-by-id'
+export {
+  getCallSummary,
+  updateCallSummary,
+  deleteCallSummary,
+  GetCallSummaryResponse,
+  UpdateCallSummaryResponse,
+  DeleteCallSummaryResponse,
+} from './endpoints/call-summaries-by-id'
