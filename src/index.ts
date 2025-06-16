@@ -8,3 +8,11 @@ export {
   UpdateCallRecordingResponse,
   DeleteCallRecordingResponse,
 } from './endpoints/call-recordings-by-id'
+export {
+  getContacts,
+  createContact,
+  GetContactsResponse,
+  CreateContactResponse,
+  CreateContactBody,
+  ListContactsParams,
+} from './endpoints/contacts'
