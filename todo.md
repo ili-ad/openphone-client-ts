@@ -6,7 +6,7 @@
 - [x] 4. wrap `/v1/calls` (get, post) → `src/endpoints/calls.ts`
 - [x] 5. wrap `/v1/contact-custom-fields` (get, post) → `src/endpoints/contact-custom-fields.ts`
 - [x] 6. wrap `/v1/contacts` (get, post) → `src/endpoints/contacts.ts`
-- [ ] 7. wrap `/v1/contacts/{id}` (get, patch, delete) → `src/endpoints/contacts-by-id.ts`
+- [x] 7. wrap `/v1/contacts/{id}` (get, patch, delete) → `src/endpoints/contacts-by-id.ts`
 - [ ] 8. wrap `/v1/conversations` (get, post) → `src/endpoints/conversations.ts`
 - [ ] 9. wrap `/v1/messages` (get, post) → `src/endpoints/messages.ts`
 - [ ] 10. wrap `/v1/messages/{id}` (get, patch, delete) → `src/endpoints/messages-by-id.ts`
