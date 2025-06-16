@@ -9,6 +9,13 @@ export {
   DeleteCallRecordingResponse,
 } from './endpoints/call-recordings-by-id'
 export {
+  getMessageWebhooks,
+  createMessageWebhook,
+  GetMessageWebhooksResponse,
+  CreateMessageWebhookResponse,
+  CreateMessageWebhookBody,
+} from './endpoints/webhooks-messages'
+export {
   listCallWebhooks,
   createCallWebhook,
   ListCallWebhooksResponse,
