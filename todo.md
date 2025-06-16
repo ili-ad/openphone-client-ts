@@ -12,7 +12,7 @@
 - [ ] 11. wrap `/v1/phone-numbers` (get, post) → `src/endpoints/phone-numbers.ts`
 - [ ] 12. wrap `/v1/webhooks` (get, post) → `src/endpoints/webhooks.ts`
 - [ ] 13. wrap `/v1/webhooks/call-summaries` (get, post) → `src/endpoints/webhooks-call-summaries.ts`
-- [ ] 14. wrap `/v1/webhooks/call-transcripts` (get, post) → `src/endpoints/webhooks-call-transcripts.ts`
+- [x] 14. wrap `/v1/webhooks/call-transcripts` (get, post) → `src/endpoints/webhooks-call-transcripts.ts`
 - [ ] 15. wrap `/v1/webhooks/calls` (get, post) → `src/endpoints/webhooks-calls.ts`
 - [ ] 16. wrap `/v1/webhooks/messages` (get, post) → `src/endpoints/webhooks-messages.ts`
 - [ ] 17. wrap `/v1/webhooks/{id}` (get, patch, delete) → `src/endpoints/webhooks-by-id.ts`
