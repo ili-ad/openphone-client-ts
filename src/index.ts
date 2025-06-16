@@ -14,3 +14,19 @@ export {
   ListCallsResponse,
   CreateCallResponse,
 } from './endpoints/calls'
+export {
+  getCallTranscript,
+  updateCallTranscript,
+  deleteCallTranscript,
+  GetCallTranscriptResponse,
+  UpdateCallTranscriptResponse,
+  DeleteCallTranscriptResponse,
+} from './endpoints/call-transcripts-by-id'
+export {
+  getCallSummary,
+  updateCallSummary,
+  deleteCallSummary,
+  GetCallSummaryResponse,
+  UpdateCallSummaryResponse,
+  DeleteCallSummaryResponse,
+} from './endpoints/call-summaries-by-id'
