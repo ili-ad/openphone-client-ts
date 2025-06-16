@@ -11,7 +11,7 @@
 - [x] 9. wrap `/v1/messages` (get, post) → `src/endpoints/messages.ts`
 - [x] 10. wrap `/v1/messages/{id}` (get, patch, delete) → `src/endpoints/messages-by-id.ts`
 - [x] 11. wrap `/v1/phone-numbers` (get, post) → `src/endpoints/phone-numbers.ts`
-- [ ] 12. wrap `/v1/webhooks` (get, post) → `src/endpoints/webhooks.ts`
+- [x] 12. wrap `/v1/webhooks` (get, post) → `src/endpoints/webhooks.ts`
 - [ ] 13. wrap `/v1/webhooks/call-summaries` (get, post) → `src/endpoints/webhooks-call-summaries.ts`
 - [ ] 14. wrap `/v1/webhooks/call-transcripts` (get, post) → `src/endpoints/webhooks-call-transcripts.ts`
 - [ ] 15. wrap `/v1/webhooks/calls` (get, post) → `src/endpoints/webhooks-calls.ts`

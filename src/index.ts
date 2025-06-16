@@ -10,6 +10,12 @@ export {
 } from './endpoints/call-recordings-by-id'
 
 export {
+  listWebhooks,
+  createWebhook,
+  ListWebhooksResponse,
+  CreateWebhookResponse,
+} from './endpoints/webhooks'
+export {
   listPhoneNumbers,
   createPhoneNumber,
   ListPhoneNumbersResponse,
