@@ -55,6 +55,34 @@ test('listMessages rejects deprecated since param', async () => {
   await expect(listMessages(query as any)).rejects.toThrow('since')
 })
 
+test('listMessages rejects createdAfter after createdBefore', async () => {
+  const query = {
+    phoneNumberId: 'PN1',
+    participants: ['+15551234567'],
+    maxResults: 10,
+    createdAfter: '2025-01-02T00:00:00Z',
+    createdBefore: '2025-01-01T00:00:00Z',
+  }
+
+  const { listMessages } = await import('../src')
+  await expect(listMessages(query as any)).rejects.toThrow('createdAfter must be <= createdBefore')
+})
+
+test('listMessages rejects invalid createdAfter/createdBefore dates', async () => {
+  const query = {
+    phoneNumberId: 'PN1',
+    participants: ['+15551234567'],
+    maxResults: 10,
+    createdAfter: 'not-a-date',
+    createdBefore: '2025-01-01T00:00:00Z',
+  }
+
+  const { listMessages } = await import('../src')
+  await expect(listMessages(query as any)).rejects.toThrow(
+    'createdAfter/createdBefore must be valid date-time strings'
+  )
+})
+
 test('sendMessage posts body', async () => {
   const body = {
     content: 'hi',

@@ -57,6 +57,19 @@ test('listCalls rejects deprecated since param', async () => {
   await expect(listCalls(params as any)).rejects.toThrow('since')
 })
 
+test('listCalls rejects createdAfter after createdBefore', async () => {
+  const params = {
+    phoneNumberId: 'PN1',
+    participants: ['+15555555555'],
+    maxResults: 5,
+    createdAfter: '2025-01-02T00:00:00Z',
+    createdBefore: '2025-01-01T00:00:00Z',
+  }
+
+  const { listCalls } = await import('../src')
+  await expect(listCalls(params as any)).rejects.toThrow('createdAfter must be <= createdBefore')
+})
+
 test('createCall posts body', async () => {
   const body = { foo: 'bar' }
   server.use(
