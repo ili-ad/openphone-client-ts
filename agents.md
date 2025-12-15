@@ -14,7 +14,7 @@ Find the "wrapper backlog" in todo.md indicated in your prompt and:
 
 ## Testing
 * Use **msw** to mock `fetch`.
-* Assertions: URL, HTTP method, `X-API-KEY` header, and JSON body⇄type correctness.
+* Assertions: URL, HTTP method, `Authorization` header, and JSON body⇄type correctness.
 * The test file must live in `tests/` and run clean with `pnpm test`.
 
 ## CI expectation
