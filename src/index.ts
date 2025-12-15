@@ -1,6 +1,7 @@
 export {
   listCalls,
   ListCallsResponse,
+  ListCallsQuery,
 } from './endpoints/calls'
 export {
   getCallRecordings,
@@ -19,6 +20,7 @@ export {
   sendMessage,
   ListMessagesResponse,
   SendMessageResponse,
+  ListMessagesQuery,
 } from './endpoints/messages'
 export {
   getMessage,

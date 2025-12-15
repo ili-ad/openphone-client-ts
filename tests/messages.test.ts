@@ -43,6 +43,18 @@ test('listMessages rejects empty participants', async () => {
   await expect(listMessages(query as any)).rejects.toThrow('participants')
 })
 
+test('listMessages rejects deprecated since param', async () => {
+  const query = {
+    phoneNumberId: 'PN1',
+    participants: ['+15551234567'],
+    maxResults: 10,
+    since: '2025-01-01T00:00:00Z',
+  }
+
+  const { listMessages } = await import('../src')
+  await expect(listMessages(query as any)).rejects.toThrow('since')
+})
+
 test('sendMessage posts body', async () => {
   const body = {
     content: 'hi',

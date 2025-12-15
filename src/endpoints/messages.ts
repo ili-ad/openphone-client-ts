@@ -4,9 +4,19 @@ import type { paths } from '../sdk'
 export type ListMessagesResponse =
   paths['/v1/messages']['get']['responses']['200']['content']['application/json']
 
+export type ListMessagesQuery = Omit<
+  paths['/v1/messages']['get']['parameters']['query'],
+  'since'
+> & { since?: never }
+
 export async function listMessages(
-  query: paths['/v1/messages']['get']['parameters']['query']
+  query: ListMessagesQuery
 ): Promise<ListMessagesResponse> {
+  if ((query as any).since !== undefined) {
+    throw new Error(
+      'since is deprecated and behaves incorrectly; use createdAfter/createdBefore'
+    )
+  }
   if (!query.phoneNumberId) {
     throw new Error('phoneNumberId is required')
   }
@@ -21,7 +31,6 @@ export async function listMessages(
   params.set('phoneNumberId', query.phoneNumberId)
   if (query.userId) params.set('userId', query.userId)
   for (const p of query.participants) params.append('participants', p)
-  if (query.since) params.set('since', query.since)
   if (query.createdAfter) params.set('createdAfter', query.createdAfter)
   if (query.createdBefore) params.set('createdBefore', query.createdBefore)
   params.set('maxResults', String(query.maxResults))
