@@ -34,6 +34,17 @@ test('listCalls constructs query correctly', async () => {
   expect(res).toEqual({ ok: true })
 })
 
+test('listCalls rejects empty participants', async () => {
+  const params = {
+    phoneNumberId: 'PN1',
+    participants: [],
+    maxResults: 5,
+  }
+
+  const { listCalls } = await import('../src')
+  await expect(listCalls(params as any)).rejects.toThrow('participants')
+})
+
 test('createCall posts body', async () => {
   const body = { foo: 'bar' }
   server.use(
@@ -44,7 +55,7 @@ test('createCall posts body', async () => {
     })
   )
 
-  const { createCall } = await import('../src')
-  const res = await createCall(body)
+  const { experimental } = await import('../src')
+  const res = await experimental.createCall(body)
   expect(res).toEqual({ done: true })
 })

@@ -41,7 +41,7 @@ test('createPhoneNumber posts body', async () => {
     })
   )
 
-  const { createPhoneNumber } = await import('../src')
-  const res = await createPhoneNumber(body)
+  const { experimental } = await import('../src')
+  const res = await experimental.createPhoneNumber(body)
   expect(res).toEqual(mock)
 })

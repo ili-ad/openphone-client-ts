@@ -22,8 +22,8 @@ test('getMessageWebhooks sends correct request', async () => {
     })
   )
 
-  const { getMessageWebhooks } = await import('../src')
-  const res = await getMessageWebhooks()
+  const { experimental } = await import('../src')
+  const res = await experimental.getMessageWebhooks()
   expect(res).toEqual(mock)
 })
 

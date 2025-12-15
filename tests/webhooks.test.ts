@@ -40,8 +40,8 @@ test('createWebhook sends post with body', async () => {
     })
   )
 
-  const { createWebhook } = await import('../src')
-  const res = await createWebhook(body)
+  const { experimental } = await import('../src')
+  const res = await experimental.createWebhook(body)
   expect(res).toEqual(mock)
 })
 

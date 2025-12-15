@@ -7,6 +7,16 @@ export type ListMessagesResponse =
 export async function listMessages(
   query: paths['/v1/messages']['get']['parameters']['query']
 ): Promise<ListMessagesResponse> {
+  if (!query.phoneNumberId) {
+    throw new Error('phoneNumberId is required')
+  }
+  if (!Array.isArray(query.participants) || query.participants.length < 1) {
+    throw new Error('participants must include at least one value')
+  }
+  if (!Number.isInteger(query.maxResults) || query.maxResults < 1 || query.maxResults > 100) {
+    throw new Error('maxResults must be an integer between 1 and 100')
+  }
+
   const params = new URLSearchParams()
   params.set('phoneNumberId', query.phoneNumberId)
   if (query.userId) params.set('userId', query.userId)
@@ -27,5 +37,13 @@ export type SendMessageResponse =
 export async function sendMessage(
   body: paths['/v1/messages']['post']['requestBody']['content']['application/json']
 ): Promise<SendMessageResponse> {
+  if (!Array.isArray(body.to) || body.to.length !== 1) {
+    throw new Error('`to` must contain exactly one recipient')
+  }
+  const recipient = body.to[0]
+  if (typeof recipient !== 'string' || !/^\+\d+$/.test(recipient)) {
+    throw new Error('`to` must contain a valid E.164 phone number')
+  }
+
   return request('/v1/messages', 'post', { body } as any) as unknown as SendMessageResponse
 }

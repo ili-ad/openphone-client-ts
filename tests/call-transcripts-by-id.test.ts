@@ -42,8 +42,8 @@ test('updateCallTranscript sends patch with body', async () => {
     })
   )
 
-  const { updateCallTranscript } = await import('../src')
-  const res = await updateCallTranscript(id, body)
+  const { experimental } = await import('../src')
+  const res = await experimental.updateCallTranscript(id, body)
   expect(res).toEqual(mock)
 })
 
@@ -58,7 +58,7 @@ test('deleteCallTranscript sends delete', async () => {
     })
   )
 
-  const { deleteCallTranscript } = await import('../src')
-  const res = await deleteCallTranscript(id)
+  const { experimental } = await import('../src')
+  const res = await experimental.deleteCallTranscript(id)
   expect(res).toEqual(mock)
 })

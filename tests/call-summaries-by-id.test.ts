@@ -42,8 +42,8 @@ test('updateCallSummary sends patch with body', async () => {
     })
   )
 
-  const { updateCallSummary } = await import('../src')
-  const res = await updateCallSummary(callId, body)
+  const { experimental } = await import('../src')
+  const res = await experimental.updateCallSummary(callId, body)
   expect(res).toEqual(mock)
 })
 
@@ -58,7 +58,7 @@ test('deleteCallSummary sends delete', async () => {
     })
   )
 
-  const { deleteCallSummary } = await import('../src')
-  const res = await deleteCallSummary(callId)
+  const { experimental } = await import('../src')
+  const res = await experimental.deleteCallSummary(callId)
   expect(res).toEqual(mock)
 })

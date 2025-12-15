@@ -23,8 +23,8 @@ test('listConversations sends correct request', async () => {
     })
   )
 
-  const { listConversations } = await import('../src')
-  const res = await listConversations()
+  const { experimental } = await import('../src')
+  const res = await experimental.listConversations()
   expect(res).toEqual(mock)
 })
 
@@ -40,7 +40,7 @@ test('createConversation posts body', async () => {
     })
   )
 
-  const { createConversation } = await import('../src')
-  const res = await createConversation(body)
+  const { experimental } = await import('../src')
+  const res = await experimental.createConversation(body)
   expect(res).toEqual(mock)
 })

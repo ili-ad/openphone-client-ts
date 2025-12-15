@@ -37,6 +37,12 @@ test('listMessages sends correct query', async () => {
   expect(res).toEqual(mock)
 })
 
+test('listMessages rejects empty participants', async () => {
+  const query = { phoneNumberId: 'PN1', participants: [], maxResults: 10 }
+  const { listMessages } = await import('../src')
+  await expect(listMessages(query as any)).rejects.toThrow('participants')
+})
+
 test('sendMessage posts body', async () => {
   const body = {
     content: 'hi',
@@ -56,4 +62,10 @@ test('sendMessage posts body', async () => {
   const { sendMessage } = await import('../src')
   const res = await sendMessage(body as any)
   expect(res).toEqual(mock)
+})
+
+test('sendMessage enforces one recipient', async () => {
+  const body = { content: 'hi', from: 'PN1', to: ['+1555', '+1666'] }
+  const { sendMessage } = await import('../src')
+  await expect(sendMessage(body as any)).rejects.toThrow('recipient')
 })

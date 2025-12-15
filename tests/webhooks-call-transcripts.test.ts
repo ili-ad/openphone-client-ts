@@ -24,8 +24,8 @@ test('getCallTranscriptWebhooks sends correct request', async () => {
     })
   )
 
-  const { getCallTranscriptWebhooks } = await import('../src')
-  const res = await getCallTranscriptWebhooks()
+  const { experimental } = await import('../src')
+  const res = await experimental.getCallTranscriptWebhooks()
   expect(res).toEqual(mock)
 })
 
