@@ -14,6 +14,6 @@ export async function sendSms(to: string, text: string) {
     headers: headers(),
     body: JSON.stringify({ phoneNumber: to, text })
   })
-  if (!res.ok) throw new Error(`OpenPhone ${res.status}`)
+  if (!res.ok) throw new Error(`Quo ${res.status}`)
   return res.json() as Promise<SendSmsResponse>
 }
