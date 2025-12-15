@@ -13,7 +13,7 @@ export interface paths {
         };
         /**
          * List calls
-         * @description Fetch a paginated list of calls associated with a specific OpenPhone number and another number.
+         * @description Fetch a paginated list of calls associated with a specific Quo number and another number.
          */
         get: operations["listCalls_v1"];
         put?: never;
@@ -53,7 +53,7 @@ export interface paths {
         };
         /**
          * Get a summary for a call
-         * @description Retrieve an AI-generated summary of a specific call identified by its unique call ID. Call summaries are only available on OpenPhone Business plan.
+         * @description Retrieve an AI-generated summary of a specific call identified by its unique call ID. Call summaries are only available on Quo Business plan.
          */
         get: operations["getCallSummary_v1"];
         put?: never;
@@ -73,7 +73,7 @@ export interface paths {
         };
         /**
          * Get a transcription for a call
-         * @description Retrieve a detailed transcript of a specific call identified by its unique call ID. Call transcripts are only available on OpenPhone business plan.
+         * @description Retrieve a detailed transcript of a specific call identified by its unique call ID. Call transcripts are only available on Quo business plan.
          */
         get: operations["getCallTranscript_v1"];
         put?: never;
@@ -93,7 +93,7 @@ export interface paths {
         };
         /**
          * Get contact custom fields
-         * @description Custom contact fields enhance your OpenPhone contacts with additional information beyond standard details like name, company, role, emails and phone numbers. These user-defined fields let you capture business-specific data. While you can only create or modify these fields in OpenPhone itself, this endpoint retrieves your existing custom properties. Use this information to accurately map and include important custom data when creating new contacts via the API.
+         * @description Custom contact fields enhance your Quo contacts with additional information beyond standard details like name, company, role, emails and phone numbers. These user-defined fields let you capture business-specific data. While you can only create or modify these fields in Quo itself, this endpoint retrieves your existing custom properties. Use this information to accurately map and include important custom data when creating new contacts via the API.
          */
         get: operations["getContactCustomFields_v1"];
         put?: never;
@@ -137,7 +137,7 @@ export interface paths {
         };
         /**
          * Get a contact by ID
-         * @description Retrieve detailed information about a specific contact in your OpenPhone workspace using the contact's unique identifier.
+         * @description Retrieve detailed information about a specific contact in your Quo workspace using the contact's unique identifier.
          */
         get: operations["getContactById_v1"];
         put?: never;
@@ -151,7 +151,7 @@ export interface paths {
         head?: never;
         /**
          * Update a contact by ID
-         * @description Modify an existing contact in your OpenPhone workspace using the contact's unique identifier.
+         * @description Modify an existing contact in your Quo workspace using the contact's unique identifier.
          */
         patch: operations["updateContactById_v1"];
         trace?: never;
@@ -165,7 +165,7 @@ export interface paths {
         };
         /**
          * List Conversations
-         * @description Fetch a paginated list of conversations of OpenPhone conversations. Can be filtered by user and/or phone numbers. Defaults to all conversations in the OpenPhone organization. Results are returned in descending order based on the most recent conversation.
+         * @description Fetch a paginated list of conversations of Quo conversations. Can be filtered by user and/or phone numbers. Defaults to all conversations in the Quo organization. Results are returned in descending order based on the most recent conversation.
          */
         get: operations["listConversations_v1"];
         put?: never;
@@ -185,13 +185,13 @@ export interface paths {
         };
         /**
          * List messages
-         * @description Retrieve a chronological list of messages exchanged between your OpenPhone number and specified participants, with support for filtering and pagination.
+         * @description Retrieve a chronological list of messages exchanged between your Quo number and specified participants, with support for filtering and pagination.
          */
         get: operations["listMessages_v1"];
         put?: never;
         /**
          * Send a text message
-         * @description Send a text message from your OpenPhone number to a recipient.
+         * @description Send a text message from your Quo number to a recipient.
          */
         post: operations["sendMessage_v1"];
         delete?: never;
@@ -229,7 +229,7 @@ export interface paths {
         };
         /**
          * List phone numbers
-         * @description Retrieve the list of phone numbers and users associated with your OpenPhone workspace.
+         * @description Retrieve the list of phone numbers and users associated with your Quo workspace.
          */
         get: operations["listPhoneNumbers_v1"];
         put?: never;
@@ -370,9 +370,9 @@ export interface components {
     schemas: {
         ListPhoneNumbersResponse: {
             data: {
-                /** @description The unique identifier of OpenPhone phone number. */
+                /** @description The unique identifier of Quo phone number. */
                 id: string;
-                /** @description The unique identifier of the group to which the OpenPhone number belongs. */
+                /** @description The unique identifier of the group to which the Quo number belongs. */
                 groupId: string;
                 /** @description Timestamp of when the phone number was added to the account in ISO 8601 format. */
                 createdAt: string;
@@ -472,7 +472,7 @@ export interface operations {
                             answeredBy: string | null;
                             initiatedBy: string | null;
                             /**
-                             * @description The direction of the call relative to the OpenPhone number.
+                             * @description The direction of the call relative to the Quo number.
                              * @enum {string}
                              */
                             direction: "incoming" | "outgoing";
@@ -493,11 +493,11 @@ export interface operations {
                             forwardedTo: (string) | null;
                             /** @description The unique identifier of the call. */
                             id: string;
-                            /** @description The unique identifier of the OpenPhone number associated with the call. */
+                            /** @description The unique identifier of the Quo number associated with the call. */
                             phoneNumberId: string;
                             participants: string[];
                             updatedAt: string | null;
-                            /** @description The unique identifier of the OpenPhone user account associated with the call. */
+                            /** @description The unique identifier of the Quo user account associated with the call. */
                             userId: string;
                         }[];
                         /** @description Total number of items available. ⚠️ Note: `totalItems` is not accurately returning the total number of items that can be paginated. We are working on fixing this issue. */
@@ -1213,7 +1213,7 @@ export interface operations {
                 content: {
                     "application/json": {
                         data: {
-                            /** @description The name of the custom contact field. This name is set by users in the OpenPhone interface when the custom field is created. */
+                            /** @description The name of the custom contact field. This name is set by users in the Quo interface when the custom field is created. */
                             name: string;
                             /** @description The identifying key for contact custom field. */
                             key: string;
@@ -1416,7 +1416,7 @@ export interface operations {
                                 role: string | null;
                             };
                             customFields: ({
-                                /** @description The name of the custom contact field. This name is set by users in the OpenPhone interface when the custom field is created. */
+                                /** @description The name of the custom contact field. This name is set by users in the Quo interface when the custom field is created. */
                                 name: string;
                                 /** @description The identifying key for contact custom field. */
                                 key?: string;
@@ -1727,7 +1727,7 @@ export interface operations {
                                 role: string | null;
                             };
                             customFields: ({
-                                /** @description The name of the custom contact field. This name is set by users in the OpenPhone interface when the custom field is created. */
+                                /** @description The name of the custom contact field. This name is set by users in the Quo interface when the custom field is created. */
                                 name: string;
                                 /** @description The identifying key for contact custom field. */
                                 key?: string;
@@ -1989,7 +1989,7 @@ export interface operations {
                                 role: string | null;
                             };
                             customFields: ({
-                                /** @description The name of the custom contact field. This name is set by users in the OpenPhone interface when the custom field is created. */
+                                /** @description The name of the custom contact field. This name is set by users in the Quo interface when the custom field is created. */
                                 name: string;
                                 /** @description The identifying key for contact custom field. */
                                 key?: string;
@@ -2487,7 +2487,7 @@ export interface operations {
                                 role: string | null;
                             };
                             customFields: ({
-                                /** @description The name of the custom contact field. This name is set by users in the OpenPhone interface when the custom field is created. */
+                                /** @description The name of the custom contact field. This name is set by users in the Quo interface when the custom field is created. */
                                 name: string;
                                 /** @description The identifying key for contact custom field. */
                                 key?: string;
@@ -2928,7 +2928,7 @@ export interface operations {
                             text: string;
                             phoneNumberId: string | null;
                             /**
-                             * @description The direction of the message relative to the OpenPhone number.
+                             * @description The direction of the message relative to the Quo number.
                              * @enum {string}
                              */
                             direction: "incoming" | "outgoing";
@@ -3146,15 +3146,15 @@ export interface operations {
                     content: string;
                     /**
                      * @deprecated
-                     * @description DEPRECATED, use "from" instead. OpenPhone phone number ID to send a message from
+                     * @description DEPRECATED, use "from" instead. Quo phone number ID to send a message from
                      */
                     phoneNumberId?: string;
                     from: string;
                     to: string[];
-                    /** @description The unique identifier of the OpenPhone user sending the message. If not provided, defaults to the phone number owner. */
+                    /** @description The unique identifier of the Quo user sending the message. If not provided, defaults to the phone number owner. */
                     userId?: string;
                     /**
-                     * @description Used to set the status of the related OpenPhone inbox conversation. The default behavior without setting this parameter will be for the message sent to show up as an open conversation in the user's inbox. Setting the parameter to `'done'` would move the conversation to the Done inbox view.
+                     * @description Used to set the status of the related Quo inbox conversation. The default behavior without setting this parameter will be for the message sent to show up as an open conversation in the user's inbox. Setting the parameter to `'done'` would move the conversation to the Done inbox view.
                      * @enum {string}
                      */
                     setInboxStatus?: "done";
@@ -3179,7 +3179,7 @@ export interface operations {
                             text: string;
                             phoneNumberId: string | null;
                             /**
-                             * @description The direction of the message relative to the OpenPhone number.
+                             * @description The direction of the message relative to the Quo number.
                              * @enum {string}
                              */
                             direction: "incoming" | "outgoing";
@@ -3408,7 +3408,7 @@ export interface operations {
                             text: string;
                             phoneNumberId: string | null;
                             /**
-                             * @description The direction of the message relative to the OpenPhone number.
+                             * @description The direction of the message relative to the Quo number.
                              * @enum {string}
                              */
                             direction: "incoming" | "outgoing";
