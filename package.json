@@ -5,7 +5,8 @@
   "scripts": {
     "test": "vitest run",
     "build": "tsc",
-    "spec:table": "node scripts/spec_table.mjs"
+    "spec:table": "node scripts/spec_table.mjs",
+    "spec:check": "node scripts/check_spec_table.mjs"
   },
   "keywords": [],
   "author": "",
