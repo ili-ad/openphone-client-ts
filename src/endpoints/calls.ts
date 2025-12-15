@@ -4,9 +4,19 @@ import type { paths } from '../sdk'
 export type ListCallsResponse =
   paths['/v1/calls']['get']['responses']['200']['content']['application/json']
 
+export type ListCallsQuery = Omit<
+  paths['/v1/calls']['get']['parameters']['query'],
+  'since'
+> & { since?: never }
+
 export async function listCalls(
-  params: paths['/v1/calls']['get']['parameters']['query']
+  params: ListCallsQuery
 ) {
+  if ((params as any).since !== undefined) {
+    throw new Error(
+      'since is deprecated and behaves incorrectly; use createdAfter/createdBefore'
+    )
+  }
   if (!params.phoneNumberId) {
     throw new Error('phoneNumberId is required')
   }
@@ -17,8 +27,10 @@ export async function listCalls(
     throw new Error('maxResults must be an integer between 1 and 100')
   }
 
+  const { since: _since, ...rest } = params as ListCallsQuery & { since?: unknown }
+
   const qs = new URLSearchParams()
-  for (const [key, value] of Object.entries(params)) {
+  for (const [key, value] of Object.entries(rest)) {
     if (value === undefined) continue
     if (Array.isArray(value)) {
       for (const v of value) qs.append(key, String(v))

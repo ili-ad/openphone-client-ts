@@ -4,11 +4,11 @@
 
 | Export | Method | Path | Notes |
 | --- | --- | --- | --- |
-| listCalls | GET | /v1/calls |  |
+| listCalls | GET | /v1/calls | Rejects since (deprecated/broken). Use createdAfter and createdBefore. |
 | getCallRecordings | GET | /v1/call-recordings/{callId} |  |
 | getCallSummary | GET | /v1/call-summaries/{callId} |  |
 | getCallTranscript | GET | /v1/call-transcripts/{id} |  |
-| listMessages | GET | /v1/messages |  |
+| listMessages | GET | /v1/messages | Rejects since (deprecated/broken). Use createdAfter and createdBefore. |
 | sendMessage | POST | /v1/messages |  |
 | getMessage | GET | /v1/messages/{id} |  |
 | createContact | POST | /v1/contacts |  |

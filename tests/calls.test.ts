@@ -45,6 +45,18 @@ test('listCalls rejects empty participants', async () => {
   await expect(listCalls(params as any)).rejects.toThrow('participants')
 })
 
+test('listCalls rejects deprecated since param', async () => {
+  const params = {
+    phoneNumberId: 'PN1',
+    participants: ['+15555555555'],
+    maxResults: 5,
+    since: '2025-01-01T00:00:00Z',
+  }
+
+  const { listCalls } = await import('../src')
+  await expect(listCalls(params as any)).rejects.toThrow('since')
+})
+
 test('createCall posts body', async () => {
   const body = { foo: 'bar' }
   server.use(
