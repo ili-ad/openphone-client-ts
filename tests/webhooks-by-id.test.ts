@@ -42,8 +42,8 @@ test('updateWebhook sends patch with body', async () => {
     })
   )
 
-  const { updateWebhook } = await import('../src')
-  const res = await updateWebhook(id, body)
+  const { experimental } = await import('../src')
+  const res = await experimental.updateWebhook(id, body)
   expect(res).toEqual(mock)
 })
 

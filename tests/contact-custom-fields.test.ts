@@ -40,7 +40,7 @@ test('createContactCustomField sends post with body', async () => {
     })
   )
 
-  const { createContactCustomField } = await import('../src')
-  const res = await createContactCustomField(body)
+  const { experimental } = await import('../src')
+  const res = await experimental.createContactCustomField(body)
   expect(res).toEqual(mock)
 })

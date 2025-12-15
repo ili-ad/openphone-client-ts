@@ -7,6 +7,16 @@ export type ListCallsResponse =
 export async function listCalls(
   params: paths['/v1/calls']['get']['parameters']['query']
 ) {
+  if (!params.phoneNumberId) {
+    throw new Error('phoneNumberId is required')
+  }
+  if (!Array.isArray(params.participants) || params.participants.length < 1) {
+    throw new Error('participants must include at least one value')
+  }
+  if (!Number.isInteger(params.maxResults) || params.maxResults < 1 || params.maxResults > 100) {
+    throw new Error('maxResults must be an integer between 1 and 100')
+  }
+
   const qs = new URLSearchParams()
   for (const [key, value] of Object.entries(params)) {
     if (value === undefined) continue

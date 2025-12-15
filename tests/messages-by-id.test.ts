@@ -55,8 +55,8 @@ test('updateMessage sends patch with body', async () => {
     })
   )
 
-  const { updateMessage } = await import('../src')
-  const res = await updateMessage(id, body)
+  const { experimental } = await import('../src')
+  const res = await experimental.updateMessage(id, body)
   expect(res).toEqual(mock)
 })
 
@@ -71,7 +71,7 @@ test('deleteMessage sends delete', async () => {
     })
   )
 
-  const { deleteMessage } = await import('../src')
-  const res = await deleteMessage(id)
+  const { experimental } = await import('../src')
+  const res = await experimental.deleteMessage(id)
   expect(res).toEqual(mock)
 })

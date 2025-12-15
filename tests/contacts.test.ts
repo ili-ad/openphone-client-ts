@@ -28,8 +28,8 @@ test('getContacts sends query params', async () => {
     })
   )
 
-  const { getContacts } = await import('../src')
-  const res = await getContacts(params as any)
+  const { experimental } = await import('../src')
+  const res = await experimental.getContacts(params as any)
   expect(res).toEqual(mock)
 })
 

@@ -44,8 +44,8 @@ test('updateCallRecording sends patch with body', async () => {
     })
   )
 
-  const { updateCallRecording } = await import('../src')
-  const res = await updateCallRecording(callId, body)
+  const { experimental } = await import('../src')
+  const res = await experimental.updateCallRecording(callId, body)
   expect(res).toEqual(mock)
 })
 
@@ -60,7 +60,7 @@ test('deleteCallRecording sends delete', async () => {
     })
   )
 
-  const { deleteCallRecording } = await import('../src')
-  const res = await deleteCallRecording(callId)
+  const { experimental } = await import('../src')
+  const res = await experimental.deleteCallRecording(callId)
   expect(res).toEqual(mock)
 })

@@ -23,8 +23,8 @@ test('listCallSummaryWebhooks sends correct request', async () => {
     })
   )
 
-  const { listCallSummaryWebhooks } = await import('../src')
-  const res = await listCallSummaryWebhooks()
+  const { experimental } = await import('../src')
+  const res = await experimental.listCallSummaryWebhooks()
   expect(res).toEqual(mock)
 })
 
