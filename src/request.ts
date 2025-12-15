@@ -1,8 +1,17 @@
 // src/request.ts
 import type { paths } from './sdk'
 
-const BASE = process.env.OPENPHONE_BASE_URL ?? 'https://api.openphone.com/v1'
-const KEY  = process.env.OPENPHONE_API_KEY as string
+const RAW_BASE = process.env.QUO_BASE_URL
+  ?? process.env.OPENPHONE_BASE_URL
+  ?? 'https://api.openphone.com'
+
+export const BASE = RAW_BASE.replace(/\/+$/, '')
+
+export const API_KEY = process.env.QUO_API_KEY ?? process.env.OPENPHONE_API_KEY
+
+if (!API_KEY) {
+  throw new Error('Missing API key: set QUO_API_KEY or OPENPHONE_API_KEY')
+}
 
 type Method = 'get' | 'post' | 'put' | 'patch' | 'delete'
 
@@ -25,7 +34,7 @@ export async function request<
   const res = await fetch(`${BASE}${path as string}`, {
     method: method.toUpperCase(),
     headers: {
-      'X-API-KEY': KEY,
+      Authorization: API_KEY,
       'Content-Type': 'application/json',
       ...(opts.headers ?? {}),
     },
