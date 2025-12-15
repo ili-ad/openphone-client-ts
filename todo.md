@@ -15,4 +15,4 @@
 - [ ] 14. wrap `/v1/webhooks/call-transcripts` (get, post) → `src/endpoints/webhooks-call-transcripts.ts`
 - [ ] 15. wrap `/v1/webhooks/calls` (get, post) → `src/endpoints/webhooks-calls.ts`
 - [ ] 16. wrap `/v1/webhooks/messages` (get, post) → `src/endpoints/webhooks-messages.ts`
-- [ ] 17. wrap `/v1/webhooks/{id}` (get, patch, delete) → `src/endpoints/webhooks-by-id.ts`
+- [x] 17. wrap `/v1/webhooks/{id}` (get, patch, delete) → `src/endpoints/webhooks-by-id.ts`
