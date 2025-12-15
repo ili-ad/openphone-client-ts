@@ -43,6 +43,19 @@ test('listMessages rejects empty participants', async () => {
   await expect(listMessages(query as any)).rejects.toThrow('participants')
 })
 
+test('listMessages rejects createdAfter after createdBefore', async () => {
+  const query = {
+    phoneNumberId: 'PN1',
+    participants: ['+15551234567'],
+    maxResults: 10,
+    createdAfter: '2023-01-02T00:00:00Z',
+    createdBefore: '2023-01-01T00:00:00Z',
+  }
+
+  const { listMessages } = await import('../src')
+  await expect(listMessages(query as any)).rejects.toThrow('createdAfter must be <= createdBefore')
+})
+
 test('sendMessage posts body', async () => {
   const body = {
     content: 'hi',

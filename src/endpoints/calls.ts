@@ -1,5 +1,6 @@
 import { request } from '../request'
 import type { paths } from '../sdk'
+import { assertValidCreatedRange } from '../validate'
 
 export type ListCallsResponse =
   paths['/v1/calls']['get']['responses']['200']['content']['application/json']
@@ -16,6 +17,8 @@ export async function listCalls(
   if (!Number.isInteger(params.maxResults) || params.maxResults < 1 || params.maxResults > 100) {
     throw new Error('maxResults must be an integer between 1 and 100')
   }
+
+  assertValidCreatedRange(params.createdAfter, params.createdBefore)
 
   const qs = new URLSearchParams()
   for (const [key, value] of Object.entries(params)) {

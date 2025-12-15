@@ -45,6 +45,34 @@ test('listCalls rejects empty participants', async () => {
   await expect(listCalls(params as any)).rejects.toThrow('participants')
 })
 
+test('listCalls rejects createdAfter after createdBefore', async () => {
+  const params = {
+    phoneNumberId: 'PN1',
+    participants: ['+15555555555'],
+    maxResults: 5,
+    createdAfter: '2023-01-02T00:00:00Z',
+    createdBefore: '2023-01-01T00:00:00Z',
+  }
+
+  const { listCalls } = await import('../src')
+  await expect(listCalls(params as any)).rejects.toThrow('createdAfter must be <= createdBefore')
+})
+
+test('listCalls rejects invalid createdAfter date', async () => {
+  const params = {
+    phoneNumberId: 'PN1',
+    participants: ['+15555555555'],
+    maxResults: 5,
+    createdAfter: 'not-a-date',
+    createdBefore: '2023-01-01T00:00:00Z',
+  }
+
+  const { listCalls } = await import('../src')
+  await expect(listCalls(params as any)).rejects.toThrow(
+    'createdAfter/createdBefore must be valid date-time strings'
+  )
+})
+
 test('createCall posts body', async () => {
   const body = { foo: 'bar' }
   server.use(
