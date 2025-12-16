@@ -1,7 +1,14 @@
 {
   "name": "quo-client-ts",
   "version": "2.0.0",
-  "main": "index.js",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
   "scripts": {
     "test": "vitest run",
     "build": "tsc",
