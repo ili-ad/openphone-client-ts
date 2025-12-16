@@ -7,7 +7,7 @@ const RAW_BASE = process.env.QUO_BASE_URL
 
 export const BASE = RAW_BASE.replace(/\/+$/, '')
 
-export const API_KEY = process.env.QUO_API_KEY ?? process.env.OPENPHONE_API_KEY
+export const API_KEY = process.env.QUO_API_KEY ?? process.env.OPENPHONE_API_KEY ?? ''
 
 if (!API_KEY) {
   throw new Error('Missing API key: set QUO_API_KEY or OPENPHONE_API_KEY')
